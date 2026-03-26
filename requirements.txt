@@ -1,0 +1,11 @@
+Flask
+Flask-SQLAlchemy
+Flask-WTF
+numpy
+pandas
+matplotlib
+seaborn
+scikit-learn
+Werkzeug
+pickle-mixin
+

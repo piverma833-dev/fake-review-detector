@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="cm-container">
+
+    <div class="cm-left">
+        <img src="{{ url_for('static', filename='Data-Analysis.jpg') }}" alt="Fake Review Detection">
+    </div>
+
+    <div class="cm-right">
+        <h2>Model Evaluation – Confusion Matrix</h2>
+
+        <img class="cm-img" src="data:image/png;base64,{{ plot_url }}" alt="Confusion Matrix">
+
+        <a class="btn btn-primary mt-3" href="{{ url_for('dashboard') }}">
+            ⬅ Back to Dashboard
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

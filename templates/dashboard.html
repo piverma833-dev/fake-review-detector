@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container mt-5">
+    <div style="text-align:left; padding:10px;">
+        Welcome, {{ session.username }}
+        |
+        <a href="/logout">Logout</a>
+    </div>
+    <h2 class="text-center mb-4">Fake Review Detection Dashboard</h2>
+
+    <div class="row text-center">
+
+        <!-- Detect Review -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow p-4">
+                <h4>Detect Review</h4>
+                <p>Check whether a review is Fake or Genuine</p>
+                <a href="{{ url_for('predict') }}" class="btn btn-primary">
+                    Open
+                </a>
+            </div>
+        </div>
+
+        <!-- Confusion Matrix -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow p-4">
+                <h4>Confusion Matrix</h4>
+                <p>Visualize model predictions</p>
+                <a href="{{ url_for('confusion_matrix_view') }}" class="btn btn-success">
+                    Open
+                </a>
+            </div>
+        </div>
+
+        <!-- Model Performance -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow p-4">
+                <h4>Model Performance</h4>
+                <p>Accuracy, Precision, Recall</p>
+                <a href="{{ url_for('model_performance') }}" class="btn btn-warning">
+                    Open
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content%}

@@ -1,0 +1,122 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<style>
+    body {
+        background-color: #f4f6f8;
+    }
+
+    .predict-wrapper {
+        max-width: 720px;
+        margin: 60px auto;
+    }
+
+    .predict-card {
+        background: #ffffff;
+        padding: 35px;
+        border-radius: 16px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .predict-card h2 {
+        font-weight: 700;
+        color: #333;
+    }
+
+    textarea.form-control {
+        resize: none;
+        border-radius: 10px;
+        padding: 14px;
+        font-size: 15px;
+    }
+
+    .btn-primary {
+        padding: 10px 30px;
+        font-size: 16px;
+        border-radius: 25px;
+    }
+
+    .prediction-box {
+    background: #f8f9fa;   /* light background */
+    color: #212529;        /* dark text */
+    padding: 20px 30px;
+    border-radius: 14px;
+    margin-top: 25px;
+    min-width: 300px;
+    border-left: 6px solid #607d8b; /* subtle highlight */
+}
+   .prediction-box h4 {
+    margin-bottom: 6px;
+    font-weight: 700;
+    color: #212529; /* black */
+}
+    .back-link {
+        display: block;
+        text-align: center;
+        margin-top: 25px;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .back-link:hover {
+        text-decoration: underline;
+
+    }
+    .prediction-box p {
+    color: #343a40; /* dark grey */
+    font-weight: 500;
+}
+    
+</style>
+
+<div class="predict-wrapper">
+    <div class="predict-card">
+
+        <h2 class="text-center mb-4">Fake Review Detector</h2>
+
+        <form method="POST" action="{{ url_for('predict') }}">
+            <div class="form-group">
+                <label for="review">Enter Review Text</label>
+                <textarea class="form-control" id="review" name="review" rows="5"
+                    placeholder="Type or paste the review here..." required></textarea>
+            </div>
+
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary">
+                    Predict Review
+                </button>
+            </div>
+        </form>
+
+        {% if error %}
+        <div class="alert alert-warning text-center mt-3">
+            {{ error }}
+        </div>
+        {% endif %}
+
+        {% if prediction %}
+        <div class="d-flex justify-content-center">
+            <div class="prediction-box text-center">
+                <h4>{{ prediction }}</h4>
+                <p class="mb-0">Confidence: {{ confidence }}%</p>
+            </div>
+        </div>
+        {% endif %}
+
+        <a href="{{ url_for('dashboard') }}" class="back-link">⬅ Back to Dashboard</a>
+
+    </div>
+</div>
+
+<script>
+    const reviewBox = document.getElementById('review');
+
+    reviewBox.addEventListener('input', () => {
+        const prediction = document.querySelector('.prediction-box');
+        if (prediction) {
+            prediction.style.display = 'none';
+        }
+    });
+</script>
+
+{% endblock content %}
