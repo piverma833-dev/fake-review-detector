@@ -210,4 +210,8 @@ def forgot_password():
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
+    try:
+       nltk.data.find('tokenizers/punkt_tab')
+    except LookupError:
+       nltk.download('punkt_tab')
     app.run(host="0.0.0.0", port=5000)
