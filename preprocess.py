@@ -4,11 +4,12 @@ from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 import nltk
 
-try:
-    nltk.data.find('tokenizers/punkt')
-except LookupError:
-    nltk.download('punkt', quiet=True)
-
+resources = ["punkt", "stopwords", "wordnet", "omw-1.4"]
+for res in resources:
+    try:
+        nltk.data.find(f"tokenizers/{res}" if res == "punkt" else f"corpora/{res}")
+    except LookupError:
+        nltk.download(res, quiet=True)
 
 def processing_text(text):
     text = text.lower()
