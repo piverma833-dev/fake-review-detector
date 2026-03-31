@@ -1,12 +1,15 @@
 Flask
 Flask-SQLAlchemy
 Flask-WTF
+Flask-Login
+WTForms
+email_validator
 numpy
 pandas
 matplotlib
 seaborn
 scikit-learn
-Werkzeug
-pickle-mixin
 gunicorn
 nltk
+joblib
+Werkzeug
