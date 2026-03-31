@@ -19,7 +19,7 @@ def processing_text(text):
         if ch not in string.punctuation:
             clean_text += ch
 
-    tokens = word_tokenize(clean_text,language='english')
+    tokens = word_tokenize(clean_text)
     stop_words = set(stopwords.words('english'))
     lemmatizer = WordNetLemmatizer()
 
