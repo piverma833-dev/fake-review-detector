@@ -2,6 +2,13 @@ import string
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
+import nltk
+
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt', quiet=True)
+
 
 def processing_text(text):
     text = text.lower()
@@ -11,7 +18,7 @@ def processing_text(text):
         if ch not in string.punctuation:
             clean_text += ch
 
-    tokens = word_tokenize(clean_text)
+    tokens = word_tokenize(clean_text,language='english')
     stop_words = set(stopwords.words('english'))
     lemmatizer = WordNetLemmatizer()
 
