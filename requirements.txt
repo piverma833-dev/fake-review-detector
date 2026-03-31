@@ -9,4 +9,4 @@ scikit-learn
 Werkzeug
 pickle-mixin
 gunicorn
-
+nltk
