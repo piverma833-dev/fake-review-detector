@@ -211,7 +211,7 @@ if __name__ == '__main__':
     with app.app_context():
         db.create_all()
     try:
-       nltk.data.find('tokenizers/punkt_tab')
+        nltk.data.find('tokenizers/punkt')
     except LookupError:
-       nltk.download('punkt_tab')
+        nltk.download('punkt', quiet=True)
     app.run(host="0.0.0.0", port=5000)
