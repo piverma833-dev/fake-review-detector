@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>About Fake Review Detector</h1>
+<p>The Fake Review Detector is an intelligent system designed to identify fake and misleading reviews on e-commerce
+    platforms.
+    It helps users and businesses make informed decisions by highlighting suspicious reviews automatically.</p>
+<h2>Purpose</h2>
+<ul>
+    <li>Protect users from being misled by fake reviews.</li>
+    <li>Help businesses maintain credibility and trust.</li>
+    <li>Analyze review content to detect anomalies and patterns.</li>
+</ul>
+<h2>How It Works</h2>
+<p>The system uses advanced machine learning techniques to classify reviews as real or fake. It considers:</p>
+<ul>
+    <li><strong>Text-based Features:</strong> review length, sentiment, punctuation, repeated words, spelling mistakes.</li>
+    <li><strong>Reviewer-based Features:</strong> number of reviews by the user, account age, average rating.</li>
+    <li><strong>Pattern Analysis:</strong> similarity with other reviews and unusual writing patterns.</li>
+</ul>
+<h2>Features</h2>
+<ul>
+    <li>Detect fake reviews with high accuracy.</li>
+    <li>Display confusion matrix and classification metrics for transparency.</li>
+    <li>Provide explanations for why a review is flagged as fake.</li>
+    <li>User-friendly dashboard with easy navigation.</li>
+</ul>
+<h2>Future Enhancements</h2>
+<ul>
+    <li>Incorporate more reviewer metadata for better detection.</li>
+    <li>Use advanced NLP models like BERT for higher accuracy.</li>
+    <li>Add real-time detection for live reviews.</li>
+</ul>
+{% endblock content %}

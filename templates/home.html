@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1 class="page-title">Fake Review Detection System</h1>
+
+<div class="custom-row">
+
+    <!-- LEFT SIDE IMAGE -->
+    <div class="left">
+        <img src="{{ url_for('static', filename='image.png') }}" alt="Fake Review Detection" class="project-img">
+    </div>
+
+
+    <!-- RIGHT SIDE DESCRIPTION -->
+    <div class="right">
+        <h2>About the Project</h2>
+        <p>
+            This system detects whether an online review is real or fake
+            using Machine Learning and Natural Language Processing.
+            It helps users identify trustworthy online feedback.
+        </p>
+        <form action="/login" method="get">
+            <button class="check-btn">Detect Fake Review</button>
+            <small class="text-muted ml-2" style="font-size: 13px;">
+                Login required to analyze reviews
+            </small>
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock content%}
